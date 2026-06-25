@@ -1,0 +1,29 @@
+{
+  "name": "mimo-image-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for MIMO image recognition",
+  "type": "module",
+  "bin": {
+    "mimo-image-mcp": "./src/index.mjs"
+  },
+  "scripts": {
+    "start": "node src/index.mjs",
+    "inspector": "npx @modelcontextprotocol/inspector node src/index.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mimo",
+    "image-recognition",
+    "vision"
+  ],
+  "author": "Mriestac",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
