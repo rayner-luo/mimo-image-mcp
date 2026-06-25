@@ -41,7 +41,19 @@
 为了让 Claude 在图片识别、OCR、截图分析等任务中稳定调用本 MCP，建议在项目的 `CLAUDE.md` 中加入类似说明：
 
 ```markdown
-进行图片识别任务时，只使用 mimo_image_mcp。
+## ⚠️ 模型多模态限制与图像处理规范（核心）
+
+1. **禁止直接处理图片：**
+   当前运行的模型（mimo-v2.5-pro）为纯文本模型，**不支持多模态输入**。严禁将任何图片文件（包括截图、本地图片）作为图像输入直接发送给模型，否则会导致系统报错崩溃。
+
+2. **识图任务强制路由至 MCP：**
+   当遇到任何需要“看图、识别图片、检查页面视觉布局、UI核对”的任务时（例如使用 `chrome-devtools` 截取了页面），模型**必须且只能**调用 `mimo_image_recognition_mcp` 工具。
+
+3. **具体执行链条（以 chrome-devtools 为例）：**
+   - 步骤 1：调用工具进行页面访问或截图，将图片保存到本地临时路径（例如 `screenshot.png`）。
+   - 步骤 2：**绝对不要**读取图片内容发给模型。
+   - 步骤 3：直接调用 `mimo_image_recognition_mcp`，将刚才保存的图片本地路径或参数传给它。
+   - 步骤 4：接收该 MCP 返回的**纯文本识别报告**，并基于该文本报告回答用户的布局问题。
 ```
 
 ---
@@ -104,7 +116,7 @@ npm install
 ```json
 {
   "mcpServers": {
-    "mimo-image-recognition": {
+    "mimo-image-mcp": {
       "command": "node",
       "args": ["<你的项目路径>/src/index.mjs"],
       "env": {
