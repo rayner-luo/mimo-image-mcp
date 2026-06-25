@@ -67,7 +67,7 @@ MCP 配置示例：
 ```json
 {
   "mcpServers": {
-    "mimo-image-recognition": {
+    "mimo-image-mcp": {
       "command": "npx",
       "args": ["-y", "mimo-image-mcp"],
       "env": {
