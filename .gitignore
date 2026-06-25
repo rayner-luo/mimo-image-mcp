@@ -1,3 +1,4 @@
 node_modules/
 .env
 mimo_config.json
+.npmrc

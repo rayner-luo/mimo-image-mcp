@@ -4,7 +4,7 @@
   "description": "MCP server for MIMO image recognition",
   "type": "module",
   "bin": {
-    "mimo-image-mcp": "./src/index.mjs"
+    "mimo-image-mcp": "src/index.mjs"
   },
   "scripts": {
     "start": "node src/index.mjs",

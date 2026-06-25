@@ -1,6 +1,6 @@
 # MIMO Image Recognition MCP
 
-一个调用小米 MIMO 多模态模型进行图片理解的 MCP Server（Node.js 版本）。
+一个调用小米 MIMO 多模态模型进行图片理解的 MCP Server
 
 ## 重要说明
 
@@ -87,12 +87,6 @@ MCP 配置示例：
 | `MIMO_API_KEY`  | 你的 MIMO API Key                                                                                    |
 | `MIMO_API_BASE` | MIMO API 请求地址，通常为 `https://api.xiaomimimo.com/v1`或`https://token-plan-cn.xiaomimimo.com/v1` |
 | `MIMO_MODEL`    | 要调用的 MIMO 模型名称，例如 `mimo-v2.5`                                                             |
-
-### 网络代理提醒
-
-使用本 MCP 调用 MIMO 接口时，建议不要开启代理。代理可能导致请求超时、连接失败，或影响图片 URL 的访问稳定性。
-
----
 
 ## 安装方式二：本地源码运行
 
